@@ -1,7 +1,7 @@
 #include<iostream>
 #include <iomanip>
 
-int main()
+int main1()
 {
     std::string name;
     int price;
