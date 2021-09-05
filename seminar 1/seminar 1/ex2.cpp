@@ -1,19 +1,23 @@
 #include<iostream>
 #include <iomanip>
 
-int main()
+int main2()
 {
 	double values;
 	char format1, format2;
 	std::cout << "temperatures" << '\n';
 	std::cout << '\n' << "C - Celsius" << '\n' << "K - Kelvin" << '\n' << "F - Fahrengate" << '\n';
 	std::cout << "select the input format: ";
+
 	std::cout.precision(1);
 	std::cin >> format1;
+
 	std::cout << "values: ";
 	std::cin >> values;
+
 	std::cout << "select the output format: ";
 	std::cin >> format2;
+
 	switch (format1)
 	{
 		case 'C':
@@ -56,6 +60,8 @@ int main()
 			break;
 		}
 	}
+
+	std::cout << "answer: ";
 	std::cout << std::fixed << std::showpos << values;
 	std::cout << "\n\n";
 	return 0;
