@@ -3,7 +3,7 @@
 #include<limits>
 #include<cmath>
 
-int main3()
+int main()
 {
 	std::cout << "solving the quadratic equation\n";
 
