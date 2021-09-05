@@ -17,20 +17,13 @@ int main()
     std::cin >> temperature;
     std::cout << '\n' << "*************** OUTPUT ***************" << "\n\n";
     std::cout << name << '\n';
-    std::cout.unsetf(std::ios::dec);
-    std::cout.setf(std::ios::hex);
-    std::cout << "Price:...........";
-    std::cout.width(8);
-    std::cout << std::setfill('0') << price;
+    std::cout << "Price:";
+    std::cout << std::setfill('.') << std::setw(12) << '\0' << std::setfill('0') << std::setw(8) << std::hex << price;
     std::cout << '\n' << "Has cash-back:";
-    std::cout.setf(std::ios::boolalpha);
-    std::cout.width(11);
-    std::cout << std::setfill('.') << hasCashback;
-    std::cout.unsetf(std::ios::hex);
-    std::cout.setf(std::ios::dec);
-    std::cout << '\n' << "Max temperature:......";
-    std::cout.setf(std::ios::showpos);
-    std::cout << temperature;
+    std::cout << std::setfill('.') <<std::setw(11)<< std::boolalpha << hasCashback;
+    std::cout << '\n' << "Max temperature:";
+    std::cout.width(9);
+    std::cout << std::setfill('.') << std::showpos << std::dec << temperature;
     std::cout << "\n\n";
     system("pause");
 
