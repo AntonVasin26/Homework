@@ -1,7 +1,7 @@
 #include<iostream>
 #include <iomanip>
 
-int main2()
+int main()
 {
 	double values;
 	char format1, format2;
