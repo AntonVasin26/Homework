@@ -22,7 +22,8 @@ int main()
 		{
 			if (i != s)
 			{
-				if (char(str1[i]) == char('-') && (i < str1.size() - 1) && !(19 < char(str1[i + 1]) && char(str1[i + 1]) < 64))
+				if (char(str1[i]) == char('-') && 
+					(i < str1.size() - 1) && !(19 < char(str1[i + 1]) && char(str1[i + 1]) < 64))
 				{
 					continue;
 				}
