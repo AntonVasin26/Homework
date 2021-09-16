@@ -5,40 +5,39 @@
 int main()
 {
 	std::string str1;
-	int s = 0;
+	int first = 0;
 	std::vector <std::string> out_format;
-	std::getline(std::cin, str1);
-	for (int i = 0U; i < str1.size(); ++i)
+	str1 = "abbb-ab-a abb, a, ,   b.,. b-";
+	for (int i = 0U; i < std::size(str1); ++i)
 	{
-		if (str1[i] == ' ')
+		if (std::isspace(str1[i]))
 		{
-			if (i != s)
+			if (i != first)
 			{
-				out_format.push_back(str1.substr(s, i - s));
+				out_format.push_back(str1.substr(first, i - first));
 			}
-			s = i + 1;
+			first = i + 1;
 		}
-		else if (20 < char(str1[i]) && char(str1[i]) < 64)
+		else if (!std::isalpha(str1[i]))
 		{
-			if (i != s)
+			if (i != first)
 			{
-				if (char(str1[i]) == char('-') && 
-					(i < str1.size() - 1) && !(19 < char(str1[i + 1]) && char(str1[i + 1]) < 64))
+				if (str1[i] == '-' && (i < std::size(str1) - 1) && isalpha(str1[i + 1]))
 				{
 					continue;
 				}
 				else
 				{
-					out_format.push_back(str1.substr(s, i - s));
+					out_format.push_back(str1.substr(first, i - first));
 				}
 			}
-			out_format.push_back(str1.substr(i, 1));
-			s = i + 1;
+			out_format.push_back(std::string(1, str1[i]));
+			first = i + 1;
 		}
 	}
-	if (str1.size() != s)
+	if (std::size(str1) != first)
 	{
-		out_format.push_back(str1.substr(s, str1.size() - s));
+		out_format.push_back(str1.substr(first, std::size(str1) - first));
 	}
 	for (int i = 0U; i < out_format.size(); ++i)
 	{
@@ -46,4 +45,3 @@ int main()
 	}
 	return 0;
 }
-
