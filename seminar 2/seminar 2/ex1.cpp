@@ -36,7 +36,7 @@ int main()
 			s = i + 1;
 		}
 	}
-	if (str1.size() - s != 0)
+	if (str1.size() != s)
 	{
 		out_format.push_back(str1.substr(s, str1.size() - s));
 	}
