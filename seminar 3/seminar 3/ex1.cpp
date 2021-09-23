@@ -2,23 +2,14 @@
 
 void f1()
 {
-	std::cout << "fibonachi(13) = " << fibonachi(13) << "\n\n";
+	std::cout << "fibonachi start: ";
+	for (auto i = 1; i < 15; i++) std::cout << fibonachi(i) << ' ';
+	std::cout << "\n\n";
 }
 
 
 int fibonachi(int n)
 {
-	if (n > 2)
-	{
-		return fibonachi(n - 1) + fibonachi(n - 2);
-	}
-	else if (n == 2)
-	{
-		return 1;
-	}
-	else
-	{
-		return 0;
-	}
+	return (n > 2) ? (fibonachi(n - 1) + fibonachi(n - 2)) : n-1;
 }
 

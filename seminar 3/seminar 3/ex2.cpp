@@ -1,8 +1,19 @@
 #include "function_set.hpp"
 
+
 void f2()
 {
-	std::vector <double> ans = { 5,12,34,55,11,32,42,1,2,43,6,7,5,23,45,65 };
+    std::vector <double > ans;
+    auto n = 30U;
+    for (double i = 0.0; i < n; i++)
+    {
+        ans.push_back(i);
+    }
+    std::random_device rd;
+    std::mt19937 g(rd());
+    std::shuffle(ans.begin(), ans.end(), g);;
+
+
     std::cout << "Input list:\t";
     for (auto i : ans)
     {
@@ -20,41 +31,36 @@ void f2()
 }
 
 
-void merge_sort(std::vector <double> &list, int l, int r)
+void merge(std::vector<double> &main_list, int l, int r)
 {
-	if (l == r) return;
-	int mid = (l + r) / 2;
-	merge_sort(list, l, mid);
-	merge_sort(list, mid + 1, r);
-    int i = l;
-    int j = mid + 1;
-	std::vector <double> dop_list;
-    for (int step = 0; step < r - l + 1; step++)
+    auto mid = (l + r) / 2;
+    auto i = l;
+    auto j = mid + 1;
+    std::vector <double> dop_list;
+    for (auto step = 0; step < r - l + 1; step++)
     {
-        if ((j > r) || ((i <= mid) && (list[i] < list[j])))
+        if ((j > r) || ((i <= mid) && (main_list[i] < main_list[j])))
         {
-            dop_list.push_back(list[i]);
+            dop_list.push_back(main_list[i]);
             i++;
         }
         else
         {
-            dop_list.push_back(list[j]);
+            dop_list.push_back(main_list[j]);
             j++;
         }
-       //std::cout << '\n';
-       //for (auto y : dop_list)
-       //{
-       //    std::cout << y << ' ';
-       //}
     }
-    for (int step = 0; step < r - l + 1; step++)
+    for (auto step = 0; step < r - l + 1; step++)
     {
-        list[l + step] = dop_list[step];
+        main_list[l + step] = dop_list[step];
     }
-    //std::cout << '\n';
-    //for (auto i : list)
-    //{
-    //    std::cout << i << " ";
-    //}
-    //std::cout << '\n';
+}
+
+void merge_sort(std::vector <double> &list, int l, int r)
+{
+	if (l == r) return;
+	auto mid = (l + r) / 2;
+	merge_sort(list, l, mid);
+	merge_sort(list, mid + 1, r);
+    merge(list, l, r);
 }
