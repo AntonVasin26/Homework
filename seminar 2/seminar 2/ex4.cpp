@@ -20,7 +20,6 @@ std::vector< std::vector<int>> FDM(std::string str1, std::string str2)
 			{
 				matrix[i+1][j+1] = std::fmax(matrix[i][j+1], matrix[i+1][j]);
 			}
-			
 		}
 	}
 	//std::cout << "matrix_correct\n\n";
