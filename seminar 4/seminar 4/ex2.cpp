@@ -49,65 +49,6 @@ void Student::print()
 		std::cout << (*i).name << '\n';
 	}
 }
-//struct Student
-//{
-//	std::string name;
-//	std::vector <const Lesson*> list_lesson;
-//	Student(std::string name) : name(name)
-//	{
-//		std::cout << "\ncreate student: " << name << '\n';
-//	}
-//
-//	void add_lesson(Lesson *const lesson)
-//	{
-//		list_lesson.push_back(lesson);
-//		(*lesson).list_student.push_back(this);
-//	}
-//
-//	void print()
-//	{
-//		std::cout << (*this).name << ":\n";
-//		for (auto i : (*this).list_lesson)
-//		{
-//			std::cout << (*i).name << '\n';
-//		}
-//	}
-//
-//	~Student()
-//	{
-//		std::cout << "\ndelete student: " << name << '\n';
-//	}
-//};
-
-//struct Lesson
-//{
-//	std::string name;
-//	std::vector <const Student*> list_student;
-//	Lesson(std::string name) : name(name)
-//	{
-//		std::cout << "\ncreate lesson: " << name << '\n';
-//	}
-//
-//	void add_student(Student* const student)
-//	{
-//		list_student.push_back(student);
-//		(*student).list_lesson.push_back(this);
-//	}
-//
-//	void print()
-//	{
-//		std::cout << (*this).name << ":\n";
-//		for (auto i : (*this).list_student)
-//		{
-//			std::cout << (*i).name << '\n';
-//		}
-//	}
-//
-//	~Lesson()
-//	{
-//		std::cout << "\ndelete lesson: " << name << '\n';
-//	}
-//};
 
 void ex2()
 {
