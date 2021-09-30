@@ -31,7 +31,7 @@ void Lesson::add_student(Student* const student)
 
 void Lesson::print()
 {
-	std::cout << (*this).name << '\n';
+	std::cout << (*this).name << ":\n";
 
 	for (auto i : (*this).list_student)
 	{
@@ -42,7 +42,7 @@ void Lesson::print()
 
 void Student::print()
 {
-	std::cout << (*this).name << '\n';
+	std::cout << (*this).name << ":\n";
 
 	for (auto i : (*this).list_lesson)
 	{
@@ -57,8 +57,6 @@ void ex2()
 	Student S2("Andrey");
 	Student S3("Ivan");
 	Student S4("Ann");
-	Student S5("Alex");
-	Student S6("Bob");
 
 	Lesson Maths("Maths");
 	Lesson Physics("Physics");
@@ -69,11 +67,8 @@ void ex2()
 	Maths.add_student(&S2);
 	Maths.add_student(&S4);
 	Physics.add_student(&S1);
-	Physics.add_student(&S5);
-	Physics.add_student(&S6);
 	Physics.add_student(&S3);
 	Computer_science.add_student(&S3);
-	Computer_science.add_student(&S5);
 	S1.add_lesson(&English);
 	S2.add_lesson(&English);
 	S4.add_lesson(&English);
@@ -82,6 +77,10 @@ void ex2()
 
 	Maths.print();
 	std::cout << '\n';
+	Physics.print();
+	std::cout << '\n';
 	S1.print();
-	std::cout << "\nex end";
+	std::cout << '\n';
+	S2.print();
+	std::cout << "\nex2 end\n\n";
 }

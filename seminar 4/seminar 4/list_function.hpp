@@ -1,10 +1,14 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <typeinfo>
+
 
 struct Spaseship;
 struct Lesson;
 struct Student;
+enum Month;
+
 struct Lesson
 {
 	std::string name;
@@ -38,5 +42,26 @@ struct Student
 		//std::cout << "\ndelete student: " << name << '\n';
 	}
 };
+enum Month
+{
+	January,
+	February,
+	March,
+	April,
+	May,
+	June,
+	Jule,
+	August,
+	September,
+	October,
+	November,
+	December
+};
+
+bool leap_year(int year = 2000);
+unsigned days_in_month(Month month, int year);
+
 void ex1();
 void ex2();
+void ex3();
+void ex4();
