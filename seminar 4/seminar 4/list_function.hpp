@@ -11,9 +11,9 @@ enum Month;
 
 struct Lesson
 {
-	std::string name;
+	const std::string name;
 	std::vector <const Student*> list_student;
-	Lesson(std::string name) : name(name)
+	Lesson(const std::string name) : name(name)
 	{
 		//std::cout << "\ncreate lesson: " << name << '\n';
 	}
@@ -28,9 +28,9 @@ struct Lesson
 };
 struct Student
 {
-	std::string name;
+	const std::string name;
 	std::vector <const Lesson*> list_lesson;
-	Student(std::string name) : name(name)
+	Student(const std::string name) : name(name)
 	{
 		//std::cout << "\ncreate student: " << name << '\n';
 	}
@@ -44,7 +44,7 @@ struct Student
 };
 enum Month
 {
-	January,
+	January = 1,
 	February,
 	March,
 	April,
@@ -58,7 +58,7 @@ enum Month
 	December
 };
 
-bool leap_year(int year = 2000);
+bool leap_year(int year);
 unsigned days_in_month(Month month, int year);
 
 void ex1();
