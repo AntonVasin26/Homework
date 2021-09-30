@@ -2,7 +2,7 @@
 
 struct Spaceship
 {
-	std::string name;
+	const std::string name;
 	float fuel_tank;
 	float energy_bar;
 	std::vector <std::string> crew = { "auto" };
@@ -75,7 +75,7 @@ struct Spaceship
 
 	~Spaceship()
 	{
-		std::cout << "\ndelete " << name;
+		std::cout << name << " was destroed";
 	}
 };
 

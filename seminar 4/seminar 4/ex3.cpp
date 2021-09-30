@@ -38,29 +38,29 @@ struct Time_date
 	{
 		switch (month)
 		{
-		case 0:
-			return "Junary";
 		case 1:
-			return "Febrary";
+			return "Junary";
 		case 2:
-			return "March";
+			return "Febrary";
 		case 3:
-			return "April";
+			return "March";
 		case 4:
-			return "May";
+			return "April";
 		case 5:
-			return "June";
+			return "May";
 		case 6:
-			return "Jule";
+			return "June";
 		case 7:
-			return "August";
+			return "Jule";
 		case 8:
-			return "September";
+			return "August";
 		case 9:
-			return "October";
+			return "September";
 		case 10:
-			return "November";
+			return "October";
 		case 11:
+			return "November";
+		case 12:
 			return "December";
 		}
 	}
