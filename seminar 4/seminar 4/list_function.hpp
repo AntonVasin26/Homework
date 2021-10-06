@@ -7,7 +7,7 @@
 struct Spaseship;
 struct Lesson;
 struct Student;
-enum Month;
+enum class Month;
 
 struct Lesson
 {
@@ -42,7 +42,7 @@ struct Student
 		//std::cout << "\ndelete student: " << name << '\n';
 	}
 };
-enum Month
+enum class Month
 {
 	January = 1,
 	February,
@@ -59,7 +59,7 @@ enum Month
 };
 
 bool leap_year(int year);
-unsigned days_in_month(Month month, int year);
+unsigned days_in_month(int month, int year);
 
 void ex1();
 void ex2();

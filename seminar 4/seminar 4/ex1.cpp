@@ -8,7 +8,7 @@ struct Spaceship
 	std::vector <std::string> crew = { "auto" };
 	std::vector <std::string> storage;
 	int mass = 5;
-	Spaceship(const std::string name, float fuel_tank = 0, float energy_bar = 0) :
+	Spaceship(const std::string &name, float fuel_tank = 0, float energy_bar = 0) :
 		name(name), fuel_tank(fuel_tank), energy_bar(energy_bar)
 	{
 		std::cout << "\ncreate " << name;

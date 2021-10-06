@@ -31,22 +31,22 @@ void Lesson::add_student(Student* const student)
 
 void Lesson::print()
 {
-	std::cout << (*this).name << ":\n";
+	std::cout << name << ":\n";
 
-	for (auto i : (*this).list_student)
+	for (auto i : list_student)
 	{
-		std::cout << (*i).name << '\n';
+		std::cout << i -> name << '\n';
 	}
 }
 
 
 void Student::print()
 {
-	std::cout << (*this).name << ":\n";
+	std::cout << name << ":\n";
 
-	for (auto i : (*this).list_lesson)
+	for (auto i : list_lesson)
 	{
-		std::cout << (*i).name << '\n';
+		std::cout << i -> name << '\n';
 	}
 }
 
