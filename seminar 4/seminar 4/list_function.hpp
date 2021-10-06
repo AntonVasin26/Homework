@@ -59,9 +59,12 @@ enum class Month
 };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 bool leap_year(int year);
 unsigned days_in_month(int month, int year);
 =======
+=======
+>>>>>>> parent of 77b0140 (seminar 4 var3)
 bool leap_year(int year = 2000);
 unsigned days_in_month(Month month, int year);
 >>>>>>> parent of 77b0140 (seminar 4 var3)
