@@ -23,7 +23,7 @@ struct Time_date
 			std::cout << ("\nIncorrect day\n");
 
 		if (year > 4047)
-			std::cout << "\nYear be in range [0; 4047)\n";
+			std::cout << "\nYear must be in range [0; 4047)\n";
 	}
 
 	
