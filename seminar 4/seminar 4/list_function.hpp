@@ -7,13 +7,13 @@
 struct Spaseship;
 struct Lesson;
 struct Student;
-enum Month;
+enum class Month;
 
 struct Lesson
 {
-	const std::string name;
+	std::string name;
 	std::vector <const Student*> list_student;
-	Lesson(const std::string name) : name(name)
+	Lesson(std::string name) : name(name)
 	{
 		//std::cout << "\ncreate lesson: " << name << '\n';
 	}
@@ -28,9 +28,9 @@ struct Lesson
 };
 struct Student
 {
-	const std::string name;
+	std::string name;
 	std::vector <const Lesson*> list_lesson;
-	Student(const std::string name) : name(name)
+	Student(std::string name) : name(name)
 	{
 		//std::cout << "\ncreate student: " << name << '\n';
 	}
@@ -42,7 +42,7 @@ struct Student
 		//std::cout << "\ndelete student: " << name << '\n';
 	}
 };
-enum Month
+enum class Month
 {
 	January = 1,
 	February,
@@ -58,7 +58,7 @@ enum Month
 	December
 };
 
-bool leap_year(int year);
+bool leap_year(int year = 2000);
 unsigned days_in_month(Month month, int year);
 
 void ex1();

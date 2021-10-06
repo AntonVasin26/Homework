@@ -12,15 +12,24 @@ unsigned days_in_month(Month month, int year)
 	case Month::June:
 	case Month::September:
 	case Month::November:
-		return 30;
+		return 30U;
+	case Month::January:
+	case Month::March:
+	case Month::May:
+	case Month::Jule:
+	case Month::August:
+	case Month::October:
+	case Month::December:
+		return 31U;
 	default:
-		return 31;
+		std::cout << "out of range";
+		return 0;
 	}
 }
 
 bool leap_year(int year)
 {
-	return (year % 400 == 0) ? true : (year % 100 == 0) ? false : (year % 4 == 0) ? true : false;
+	return (year % 400 == 0) || (year % 100 != 0) && (year % 4 == 0);
 }
 
 void ex4()
@@ -28,7 +37,6 @@ void ex4()
 	std::cout << "\nex4 start\n\n";
 	std::cout << days_in_month(Month::February, 1998) << " February 1998" << '\n';
 	std::cout << days_in_month(Month::February, 2008) << " February 2008" << '\n';
-
 	std::cout << days_in_month(Month::September, 2000) << " September 2000:" << '\n';
 	std::cout << "\nex4 end\n";
 }

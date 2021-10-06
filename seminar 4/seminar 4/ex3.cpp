@@ -34,41 +34,11 @@ struct Time_date
 	unsigned second : 6;
 	unsigned millisecond : 10;
 
-	std::string print_month(Month month)
-	{
-		switch (month)
-		{
-		case 1:
-			return "Junary";
-		case 2:
-			return "Febrary";
-		case 3:
-			return "March";
-		case 4:
-			return "April";
-		case 5:
-			return "May";
-		case 6:
-			return "June";
-		case 7:
-			return "Jule";
-		case 8:
-			return "August";
-		case 9:
-			return "September";
-		case 10:
-			return "October";
-		case 11:
-			return "November";
-		case 12:
-			return "December";
-		}
-	}
-
+	
 	void print()
 	{
 		std::cout << "time: " << millisecond << "ms :" << second << "s : " << minute << "min :" << hour << "hors \t";
-		std::cout << "Date: " << day << " " << print_month(month) <<  ' ' << year << (leap_year(year) ? "L.Y\n" : "U.Y\n");
+		std::cout << "Date: " << day << "." << int(month) <<  '.' << year << (leap_year(year) ? "L.Y\n" : "U.Y\n");
 	}
 };
 
