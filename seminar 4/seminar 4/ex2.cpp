@@ -4,49 +4,49 @@
 void Student::add_lesson(Lesson* const lesson)
 {
 	auto found1 = std::find(list_lesson.begin(), list_lesson.end(),lesson);
-	auto found2 = std::find(lesson -> list_student.begin(), lesson -> list_student.end(), this);
+	auto found2 = std::find((*lesson).list_student.begin(), (*lesson).list_student.end(), this);
 	if (found1 == list_lesson.end())
 	{
 		list_lesson.push_back(lesson);
 	}
-	if (found2 == lesson -> list_student.end())
+	if (found2 == (*lesson).list_student.end())
 	{
-		lesson -> list_student.push_back(this);
+		(*lesson).list_student.push_back(this);
 	}
 }
 
 void Lesson::add_student(Student* const student)
 {
 	auto found1 = std::find(list_student.begin(), list_student.end(), student);
-	auto found2 = std::find(student -> list_lesson.begin(), student -> list_lesson.end(), this);
+	auto found2 = std::find((*student).list_lesson.begin(), (*student).list_lesson.end(), this);
 	if (found1 == list_student.end())
 	{
 		list_student.push_back(student);
 	}
-	if (found2 == student -> list_lesson.end())
+	if (found2 == (*student).list_lesson.end())
 	{
-		student -> list_lesson.push_back(this);
+		(*student).list_lesson.push_back(this);
 	}
 }
 
 void Lesson::print()
 {
-	std::cout << (*this).name << ":\n";
+	std::cout << name << ":\n";
 
-	for (auto i : (*this).list_student)
+	for (auto i : list_student)
 	{
-		std::cout << (*i).name << '\n';
+		std::cout << i -> name << '\n';
 	}
 }
 
 
 void Student::print()
 {
-	std::cout << (*this).name << ":\n";
+	std::cout << name << ":\n";
 
-	for (auto i : (*this).list_lesson)
+	for (auto i : list_lesson)
 	{
-		std::cout << (*i).name << '\n';
+		std::cout << i -> name << '\n';
 	}
 }
 
