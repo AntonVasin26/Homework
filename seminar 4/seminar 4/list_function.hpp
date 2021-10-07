@@ -61,8 +61,10 @@ enum class Month
 
 bool leap_year(int year = 2000);
 unsigned days_in_month(Month month, int year);
+unsigned days_in_month1(int month, int year);
 
 void ex1();
 void ex2();
 void ex3();
 void ex4();
+void ex41();

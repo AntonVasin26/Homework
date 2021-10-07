@@ -145,6 +145,7 @@
     <ClCompile Include="ex2.cpp" />
     <ClCompile Include="ex3.cpp" />
     <ClCompile Include="ex4.cpp" />
+    <ClCompile Include="ex4.1.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Контрольные вопросы.txt" />
