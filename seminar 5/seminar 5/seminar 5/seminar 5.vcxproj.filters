@@ -21,7 +21,7 @@
     <ClCompile Include="main.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="ex1.cpp">
+    <ClCompile Include="ex1.hpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="ex2.cpp">
@@ -31,6 +31,9 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="ex4.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Spaceship.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
