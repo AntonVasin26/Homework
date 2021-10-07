@@ -10,11 +10,11 @@ public:
 		std::cout << "\ncreate " << name;
 	}
 
-	void add_passenger(std::string name_p, double mass_p);
-	void get_passenger(std::string name_p);
+	void add_passenger(const std::string& name_p, double mass_p);
+	void get_passenger(const std::string& name_p);
 	
-	void add_luggage(std::string name_l, double mass_l);
-	void get_luggage(std::string name_l);
+	void add_luggage(const std::string& name_l, double mass_l);
+	void get_luggage(const std::string& name_l);
 
 	void fill_up_fuel(int m);
 	void fill_up_energy(int m);

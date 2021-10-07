@@ -21,7 +21,7 @@
     <ClCompile Include="main.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="ex1.hpp">
+    <ClCompile Include="ex1_Spaseship.hpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="ex2.cpp">

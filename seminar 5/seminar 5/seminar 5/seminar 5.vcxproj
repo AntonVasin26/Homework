@@ -141,7 +141,7 @@
   <ItemGroup>
     <ClCompile Include="list_function.hpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="ex1.hpp" />
+    <ClCompile Include="ex1_Spaseship.hpp" />
     <ClCompile Include="ex2.cpp" />
     <ClCompile Include="ex3.cpp" />
     <ClCompile Include="ex4.cpp" />

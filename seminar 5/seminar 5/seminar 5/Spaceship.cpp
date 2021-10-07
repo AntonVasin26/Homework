@@ -1,6 +1,6 @@
 #include "list_function.hpp"
 #include "ex1.hpp"
-void Spaceship::add_passenger(std::string name_p, double mass_p)
+void Spaceship::add_passenger(const std::string& name_p, double mass_p)
 {
 	if (crew.size() <= crlim && storage.find(name_p) == storage.end())
 	{
@@ -18,7 +18,7 @@ void Spaceship::add_passenger(std::string name_p, double mass_p)
 	}
 }
 
-void Spaceship::get_passenger(std::string name_p)
+void Spaceship::get_passenger(const std::string& name_p)
 {
 	auto f = crew.find(name_p);
 	if (f != crew.end())
@@ -33,7 +33,7 @@ void Spaceship::get_passenger(std::string name_p)
 	}
 }
 
-void Spaceship::add_luggage(std::string name_l, double mass_l)
+void Spaceship::add_luggage(const std::string& name_l, double mass_l)
 {
 	if (stm + mass_l <= stlim && storage.find(name_l) == storage.end())
 	{
@@ -51,7 +51,7 @@ void Spaceship::add_luggage(std::string name_l, double mass_l)
 	}
 }
 
-void Spaceship::get_luggage(std::string name_l)
+void Spaceship::get_luggage(const std::string& name_l)
 {
 	auto f = storage.find(name_l);
 	if (f != storage.end())
