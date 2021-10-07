@@ -21,9 +21,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="ex1_Spaseship.hpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="ex2.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
@@ -33,7 +30,13 @@
     <ClCompile Include="ex4.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Spaceship.cpp">
+    <ClCompile Include="ex2_Energy.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="ex1.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="ex1_Spaceship.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -41,5 +44,13 @@
     <Text Include="Контрольные вопросы.txt">
       <Filter>Исходные файлы</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ex2_Energy.hpp">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="ex1_Spaceship.hpp">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

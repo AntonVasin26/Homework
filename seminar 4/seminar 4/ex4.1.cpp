@@ -3,7 +3,7 @@
 
 unsigned days_in_month1(int month, int year)
 {
-	Month enm = (Month)month;
+	Month enm = static_cast<Month>(month);
 	switch (enm)
 	{
 	case Month::February:
