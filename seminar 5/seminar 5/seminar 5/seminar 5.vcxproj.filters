@@ -24,9 +24,6 @@
     <ClCompile Include="ex2.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="ex4.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="ex2_Energy.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>

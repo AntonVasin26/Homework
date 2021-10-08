@@ -146,7 +146,6 @@
     <ClCompile Include="list_function.hpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ex2.cpp" />
-    <ClCompile Include="ex4.cpp" />
     <ClCompile Include="ex2_Energy.cpp" />
   </ItemGroup>
   <ItemGroup>
