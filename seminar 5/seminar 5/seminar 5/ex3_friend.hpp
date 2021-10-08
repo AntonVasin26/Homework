@@ -1,0 +1,94 @@
+#include "list_function.hpp"
+
+// Я не уверен что до конца все правильно понял, но прокоментировал как смог
+
+class Сitizen
+{
+public:
+	class Passkey1
+	{
+	private:
+		friend class Government; // - обявление возможна только в класс Government.
+		Passkey1() {};
+		Passkey1(const Passkey1&) {};
+		Passkey1& operator=(const Passkey1&) = delete;
+	};
+
+	
+	class Passkey2
+	{
+	private:
+		friend class Coffeehouse;  // - обявление возможна только в класс Coffeehouse.
+		Passkey2() {};
+		Passkey2(const Passkey2&) {};
+		Passkey2& operator=(const Passkey2&) = delete;
+	};
+
+public:
+	std::string getName() const
+	{
+		std::cout << _name << '\n';
+	}
+	std::string getSSN(Passkey1)
+	{
+		return _socialSecurityNumber;
+	}
+	std::string getfavouriteFood(Passkey2) const
+	{
+		return _favouriteFood;
+	}
+
+private:
+	std::string _name;
+	std::string _favouriteFood;
+	std::string _socialSecurityNumber;
+
+private:
+
+};
+
+class Government
+{
+public:
+	void printInfo()
+	{
+		std::cout << SSN;
+	}
+private:
+	void printCitizenInfo(Сitizen citizen) const
+	{
+		//Таким образом к Passkey1 доступ имеет только Government ==> Воспользоватся getSSN может только этот класс
+		citizen.getName();
+		citizen.getSSN(Сitizen::Passkey1());
+		//citizen.getfavouriteFood(Сitizen::Passkey2()); - данные методы недоступны
+		//citizen._favouriteFood;
+	}
+	std::string SSN;
+	Сitizen::Passkey1 A; // - обявление возможна только в класс Government.
+	//Сitizen::Passkey2 B; // - обявление возможна только в класс Coffeehouse.
+};
+class Coffeehouse
+{
+public:
+	void printInfo()
+	{
+		std::cout << favoritFood;
+	}
+
+private:
+	void CitizenFood(Сitizen citizen) const
+	{
+		//Таким образом к Passkey2 доступ имеет только Coffeehouse ==> Воспользоватся getfavoriteFood может только этот класс
+		citizen.getName();
+		citizen.getfavouriteFood(Сitizen::Passkey2());
+		//citizen.getSSN(Сitizen::Passkey1()); - данные методы не работают
+		//citizen._socialSecurityNumber;
+	
+	}
+
+	std::string favoritFood;
+	//Сitizen::Passkey1 A; // - обявление возможна только в класс Government. 
+	Сitizen::Passkey2 B; // - обявление возможна только в класс Coffeehouse. 
+};
+
+

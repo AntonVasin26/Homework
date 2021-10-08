@@ -24,9 +24,6 @@
     <ClCompile Include="ex2.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="ex3.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="ex4.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
@@ -37,6 +34,9 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="ex1_Spaceship.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="ex3.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -50,6 +50,9 @@
       <Filter>Исходные файлы</Filter>
     </ClInclude>
     <ClInclude Include="ex1_Spaceship.hpp">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="ex3_friend.hpp">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
   </ItemGroup>
