@@ -30,12 +30,6 @@ unsigned days_in_month1(int month, int year)
 
 void ex41()
 {
-	//std::cout << "\nex4 start\n\n";
-	//std::cout << days_in_month(Month::February, 1998) << " February 1998" << '\n';
-	//std::cout << days_in_month(Month::February, 2008) << " February 2008" << '\n';
-	//std::cout << days_in_month(Month::September, 2000) << " September 2000:" << '\n';
-	//std::cout << "\nex4 end\n";
-
 	std::cout << "\nex4.1 start\n\n";
 	std::cout << days_in_month1(2, 1998) << " February 1998" << '\n';
 	std::cout << days_in_month1(2, 2008) << " February 2008" << '\n';
