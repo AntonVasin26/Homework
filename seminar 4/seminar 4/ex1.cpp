@@ -82,14 +82,14 @@ struct Spaceship
 void ex1()
 {
 	std::cout << "\nex1 start\n";
-	Spaceship Borey("Borey", 200, 100);
-	Borey.condition();
-	Borey.move(10);
-	Borey.add_passenger("Anton");
-	Borey.add_luggage("laptop");
-	Borey.fill_up_energy(50);
-	Borey.fill_up_fuel(100);
-	Borey.move(50);
-	Borey.move(200);
+	Spaceship borey("Borey", 200, 100);
+	borey.condition();
+	borey.move(10);
+	borey.add_passenger("Anton");
+	borey.add_luggage("laptop");
+	borey.fill_up_energy(50);
+	borey.fill_up_fuel(100);
+	borey.move(50);
+	borey.move(200);
 	std::cout << "\n\nex1 end\n";
 }
