@@ -95,7 +95,7 @@ void Spaceship::fill_up_energy(int m)
 	}
 }
 
-void Spaceship::move(float learn)
+void Spaceship::move(double learn)
 {
 	full_mass = sm + cm + stm;
 	if (eb <= learn)
@@ -120,12 +120,12 @@ void Spaceship::condition()
 	full_mass = sm + cm + stm;
 	std::cout << '\n' << name << "\ntotal mass: " << full_mass << "\tfuel_tank: " << ft << "/" << flim << "\tenergy_bar: " << eb << "/" << elim;
 	std::cout << "\nmass crew:" << cm;
-	for (auto i : crew)
+	for (auto &i : crew)
 	{
 		std::cout << '\n' << i.first << ": " << i.second;
 	}
 	std::cout << "\nmass storage:" << stm;
-	for (auto i : storage)
+	for (auto &i : storage)
 	{
 		std::cout << '\n' << i.first << ": " << i.second;
 	}

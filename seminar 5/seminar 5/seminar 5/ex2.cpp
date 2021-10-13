@@ -14,5 +14,6 @@ void ex2()
 	b.print();
 	b.change_unit_to(Energy::E_units::Joule);
 	b.print();
+	auto A = a.get_value();
 	std::cout << "\n\n ex2 end \n\n";
 }

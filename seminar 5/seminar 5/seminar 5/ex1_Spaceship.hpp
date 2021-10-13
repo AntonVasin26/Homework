@@ -3,7 +3,7 @@
 class Spaceship
 {
 public:   
-	Spaceship(const std::string& name, const double ship_mass, double fuel_tank_limit,
+	explicit Spaceship(const std::string& name, const double ship_mass, double fuel_tank_limit,
 		double energy_bar_limit, unsigned int crew_capacity, double storage_capacity) :
 		name(name), sm(ship_mass), flim(fuel_tank_limit), elim(energy_bar_limit), crlim(crew_capacity), stlim(storage_capacity)
 	{
@@ -19,7 +19,7 @@ public:
 	void fill_up_fuel(int m);
 	void fill_up_energy(int m);
 
-	void move(float learn);
+	void move(double learn);
 	void condition();
 
 	~Spaceship()
