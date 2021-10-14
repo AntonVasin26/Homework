@@ -116,6 +116,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -142,9 +143,11 @@
     <Text Include="Контрольные вопросы.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="double_in_Fraction.cpp" />
     <ClCompile Include="ex2.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ex2.hpp" />
     <ClInclude Include="Header.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

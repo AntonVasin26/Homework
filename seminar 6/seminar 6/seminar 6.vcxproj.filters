@@ -20,12 +20,18 @@
     </Text>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="double_in_Fraction.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
     <ClCompile Include="ex2.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header.hpp">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="ex2.hpp">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
   </ItemGroup>
