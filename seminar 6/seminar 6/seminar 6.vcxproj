@@ -145,6 +145,7 @@
   <ItemGroup>
     <ClCompile Include="double_in_Fraction.cpp" />
     <ClCompile Include="ex2.cpp" />
+    <ClCompile Include="my_relize.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ex2.hpp" />

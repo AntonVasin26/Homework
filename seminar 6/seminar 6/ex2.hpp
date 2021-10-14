@@ -10,68 +10,34 @@ class Fraction
 	bool simply;
 public:
 	Fraction() : numerator(0), denominator(1), simply(true) {}
-	Fraction(double x) : simply(true)
-	{
-		as_fraction(x, numerator, denominator, 10, 5e-4);
-	}
-	Fraction(int n, unsigned int m = 1, bool simply = true) : numerator(n), denominator(m), simply(simply)
-	{
-		if (simply)
-		{
-			simplify();
-		}
-	}
 
-	explicit operator double()const
-	{
-		double x = numerator / denominator;
-		return x;
-	}
+	Fraction(int n) : numerator(n), denominator(1U) {}
 
-	void simplify()
-	{
-		int d = std::gcd(numerator,denominator);
-		numerator /= d;
-		denominator /= d;
-	}
-	friend Fraction operator+ (const Fraction a, const Fraction b);
-	friend Fraction operator- (const Fraction a, const Fraction b);
-	friend Fraction operator* (const Fraction a, const Fraction b);
-	friend Fraction operator/ (const Fraction a, const Fraction b);
+	Fraction(double x) : simply(true) {as_fraction(x, numerator, denominator, 10, 5e-4);}
+
+	Fraction(int n, unsigned int m = 1, bool simply = true) : numerator(n), denominator(m), simply(simply) {if (simply) simplify();}
+
+	Fraction(const Fraction& f) = default;
+
+	Fraction(Fraction&& f) = default;
+
+	explicit operator double()const {return static_cast<double>(numerator) / static_cast<double>(denominator);}
+
+	void simplify();
+	int get_whole_part() const{return  numerator / denominator;}
+	int get_numerator() const {return numerator;}
+	int get_denominator() const {return denominator;}
+
+	Fraction& operator= (const Fraction& other) = default;
+	Fraction& operator= (Fraction&& other) = default;
+	Fraction& operator += (const Fraction& other);
+	Fraction& operator -= (const Fraction& other);
+	Fraction& operator *= (const Fraction& other);
+	Fraction& operator /= (const Fraction& other);
+
+	friend const Fraction operator+ (const Fraction& a, const Fraction& b);
+	friend const Fraction operator- (const Fraction& a, const Fraction& b);
+	friend const Fraction operator* (const Fraction& a, const Fraction& b);
+	friend const Fraction operator/ (const Fraction& a, const Fraction& b);
+	friend std::ostream& operator << (std::ostream& os, const Fraction& q);
 };
-
-Fraction operator+(const Fraction a, const Fraction b)
-{
-	Fraction c;
-	if (a.simply && b.simply)
-	{
-		c.numerator = (a.numerator * b.denominator) + (a.denominator * b.numerator);
-		c.denominator = b.denominator * a.denominator;
-		c.simplify();
-	}
-	else
-	{
-		c.numerator = (a.numerator * b.denominator) + (a.denominator * b.numerator);
-		c.denominator = b.denominator * a.denominator;
-	}
-	return c;
-}
-
-Fraction operator+(const Fraction a, const Fraction b)
-{
-	Fraction c;
-	if (a.simply && b.simply)
-	{
-		c.numerator = (a.numerator * b.denominator) - (a.denominator * b.numerator);
-		c.denominator = b.denominator * a.denominator;
-		c.simplify();
-	}
-	else
-	{
-		c.numerator = (a.numerator * b.denominator) - (a.denominator * b.numerator);
-		c.denominator = b.denominator * a.denominator;
-	}
-	return c;
-}
-
-

@@ -9,10 +9,10 @@ private:
 
 public:
 	Arr_Var_Vec() : arr_data(nullptr), arr_length(0), vec() {}
-	Arr_Var_Vec(int length, std::vector<int> arr, std::vector<int> v);
+	Arr_Var_Vec(int length, std::vector<int>& arr, std::vector<int>& v);
 	Arr_Var_Vec(const Arr_Var_Vec& other);
 	Arr_Var_Vec(Arr_Var_Vec&& other);
-	Arr_Var_Vec& operator= (Arr_Var_Vec& other);
+	Arr_Var_Vec& operator= (const Arr_Var_Vec& other);
 	Arr_Var_Vec& operator= (Arr_Var_Vec&& other);
 	~Arr_Var_Vec()
 	{
@@ -25,7 +25,7 @@ public:
 	void print();
 
 };
-Arr_Var_Vec::Arr_Var_Vec(int length, std::vector<int> arr, std::vector<int> v) : arr_length(length), vec(v)
+Arr_Var_Vec::Arr_Var_Vec(int length, std::vector<int>& arr, std::vector<int>& v) : arr_length(length), vec(v)
 {
 	arr_data = new int[length];
 	if (length > std::size(arr))
@@ -55,7 +55,7 @@ Arr_Var_Vec::Arr_Var_Vec(Arr_Var_Vec&& other) : arr_length(other.arr_length), ar
 	std::vector<int>().swap(other.vec);
 }
 
-Arr_Var_Vec & Arr_Var_Vec::operator= (Arr_Var_Vec& other)
+Arr_Var_Vec & Arr_Var_Vec::operator= (const Arr_Var_Vec& other)
 {
 	if (this == &other) return *this;
 	if (arr_data)
@@ -101,7 +101,9 @@ void Arr_Var_Vec::print()
 
 int main()
 {
-	Arr_Var_Vec a1(5, { 4,5,6}, { 1,2,3 });
+	std::vector<int> v1 = { 1,2,3 };
+	std::vector<int> v2 = { 1,2,3 };
+	Arr_Var_Vec a1(5, v1, v2);
 	a1.print();
 	Arr_Var_Vec a2(a1);
 	a2.print();
@@ -109,7 +111,7 @@ int main()
 	a3.print();
 	a1.print();
 	std::cout << "\n--------------------------------------------\n";
-	Arr_Var_Vec a4(10, { 1,1,1 }, { 9,8,7,6 });
+	Arr_Var_Vec a4(10, {1,1,1 }, { 9,8,7,6 });
 	Arr_Var_Vec a5;
 	a5.print();
 	a5 = a4;
