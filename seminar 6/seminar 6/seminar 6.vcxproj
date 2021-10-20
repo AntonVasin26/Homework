@@ -140,9 +140,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Text Include="Контрольные вопросы.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="double_in_Fraction.cpp" />
     <ClCompile Include="ex2.cpp" />
     <ClCompile Include="my_relize.cpp" />

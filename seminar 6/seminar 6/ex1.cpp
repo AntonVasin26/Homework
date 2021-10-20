@@ -9,7 +9,7 @@ private:
 
 public:
 	Arr_Var_Vec() : arr_data(nullptr), arr_length(0), vec() {}
-	Arr_Var_Vec(int length, std::vector<int>& arr, std::vector<int>& v);
+	Arr_Var_Vec(int length, const std::vector<int>& arr, const std::vector<int>& v);
 	Arr_Var_Vec(const Arr_Var_Vec& other);
 	Arr_Var_Vec(Arr_Var_Vec&& other);
 	Arr_Var_Vec& operator= (const Arr_Var_Vec& other);
@@ -25,7 +25,7 @@ public:
 	void print();
 
 };
-Arr_Var_Vec::Arr_Var_Vec(int length, std::vector<int>& arr, std::vector<int>& v) : arr_length(length), vec(v)
+Arr_Var_Vec::Arr_Var_Vec(int length, const std::vector<int>& arr, const std::vector<int>& v) : arr_length(length), vec(v)
 {
 	arr_data = new int[length];
 	if (length > std::size(arr))

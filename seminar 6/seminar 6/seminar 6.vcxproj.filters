@@ -15,11 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Контрольные вопросы.txt">
-      <Filter>Исходные файлы</Filter>
-    </Text>
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="double_in_Fraction.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
