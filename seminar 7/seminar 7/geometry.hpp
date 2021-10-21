@@ -5,9 +5,6 @@
 
 namespace Gm
 {
-	double vp(const Gm::Point& v1, const Gm::Point& v2);
-	double dist(const Gm::Point& p1, const Gm::Point& p2);
-
 	class Point
 	{
 	public:
@@ -25,27 +22,119 @@ namespace Gm
 		~Point() = default;
 	};
 
+	double vp(const Gm::Point* v1, const Gm::Point* v2);
+	double dist(const Gm::Point& p1,const Gm::Point& p2);
+
+	
+
 	class Close_Shape
 	{
 	public:
-		Close_Shape(const std::vector<Gm::Point*>& vec): points(vec){}
+		Close_Shape(const std::vector<Gm::Point*>& vec) : points(vec) {}
+		friend std::ostream& operator<< (std::ostream& stream, const Close_Shape& sh);
+		virtual std::ostream& print(std::ostream& stream) const = 0;
 		virtual double S() const = 0;
 		virtual double P() const = 0;
-		virtual void print() const = 0;
+		virtual ~Close_Shape() = default;
+
 	protected:
 		std::vector<Gm::Point*> points;
+		static inline const double Pi = 3.14159265358979323846;
 	};
 
 	class SPoligon : public Close_Shape
 	{
 	public:
-		SPoligon(const std::vector<Gm::Point*>& vec) :Close_Shape(vec){}
-		virtual void print() const override;
+		SPoligon(const std::vector<Gm::Point*>& vec) :Close_Shape(vec) {}
+		virtual std::ostream& print(std::ostream& stream) const override;
 		virtual double S() const override;
 		virtual double P() const override;
 	};
 
+	class Quadrilaterals : public SPoligon
+	{
+	public:
+		Quadrilaterals(const std::vector<Gm::Point*>& vec) :SPoligon(vec) {}
+		virtual std::ostream& print(std::ostream& stream) const override;
+	};
 
+	class Square : public Quadrilaterals
+	{
+	public:
+		Square(const std::vector<Gm::Point*>& vec) :Quadrilaterals(vec) {}
+		virtual std::ostream& print(std::ostream& stream) const override;
+		virtual double S() const override;
+	};
+
+	class Rectangle : public Quadrilaterals
+	{
+	public:
+		Rectangle(const std::vector<Gm::Point*>& vec) :Quadrilaterals(vec) {}
+		virtual std::ostream& print(std::ostream& stream) const override;
+		virtual double S() const override;
+	};
+
+	class Parallelogram : public Quadrilaterals
+	{
+	public:
+		Parallelogram(const std::vector<Gm::Point*>& vec) :Quadrilaterals(vec) {}
+		virtual std::ostream& print(std::ostream& stream) const override;
+		virtual double S() const override;
+	};
+
+	class Rhomb : public Parallelogram
+	{
+	public:
+		Rhomb(const std::vector<Gm::Point*>& vec) :Parallelogram(vec) {}
+		virtual std::ostream& print(std::ostream& stream) const override;
+	};
+
+	class Triangle : public SPoligon
+	{
+	public:
+		Triangle(const std::vector<Gm::Point*>& vec) :SPoligon(vec) {}
+		virtual std::ostream& print(std::ostream& stream) const override;
+		virtual double S() const override;
+	};
+
+	class Ellipse : public Close_Shape
+	{
+	public:
+		Ellipse(const std::vector<Gm::Point*>& vec) :Close_Shape(vec)
+		{ 
+			Gm::Point p1 = *points[0];
+			Gm::Point p2 = *points[2];
+			a = dist(p1, p2)/2.0;
+			p1 = *points[1];
+			p2 = *points[3];
+			b = dist(p1, p2)/2.0;
+			if (b>a)
+			{
+				std::swap(a, b); 
+			} 
+		}
+		virtual std::ostream& print(std::ostream& stream) const override;
+		virtual double S() const override;
+		virtual double P() const override;
+		double a;
+		double b;
+	};
+
+	class Ñircle : public Close_Shape
+	{
+	public:
+		Ñircle(const std::vector<Gm::Point*>& vec) :Close_Shape(vec)
+		{
+			Gm::Point p1 = *points[0];
+			Gm::Point p2 = *points[1];
+			r = dist(p1, p2);
+		}
+		virtual std::ostream& print(std::ostream& stream) const override;
+		virtual double S() const override;
+		virtual double P() const override;
+		double r;
+
+	};
 
 
 }
