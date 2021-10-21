@@ -6,6 +6,7 @@
 namespace Gm
 {
 	double vp(const Gm::Point& v1, const Gm::Point& v2);
+	double dist(const Gm::Point& p1, const Gm::Point& p2);
 
 	class Point
 	{
@@ -17,6 +18,8 @@ namespace Gm
 		Point& operator -= (const Point& other);
 		friend Point operator+ (const Point& a, const Point& b);
 		friend Point operator- (const Point& a, const Point& b);
+		friend std::ostream& operator << (std::ostream& os, const Point& p);
+		friend std::istream& operator>>(std::istream& in, Point& p);
 		double x, y;
 
 		~Point() = default;
@@ -28,19 +31,18 @@ namespace Gm
 		Close_Shape(const std::vector<Gm::Point*>& vec): points(vec){}
 		virtual double S() const = 0;
 		virtual double P() const = 0;
-		virtual std::ostream& print() const = 0;
+		virtual void print() const = 0;
 	protected:
 		std::vector<Gm::Point*> points;
 	};
 
-	class Rect : public Close_Shape
+	class SPoligon : public Close_Shape
 	{
 	public:
-		Rect(const std::vector<Gm::Point*>& vec) :Close_Shape(vec){}
-		virtual std::ostream& print() const override;
+		SPoligon(const std::vector<Gm::Point*>& vec) :Close_Shape(vec){}
+		virtual void print() const override;
 		virtual double S() const override;
 		virtual double P() const override;
-
 	};
 
 
