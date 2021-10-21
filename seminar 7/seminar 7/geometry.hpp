@@ -5,10 +5,11 @@
 
 namespace Gm
 {
-	double vp(Point){}
+	double vp(const Gm::Point& v1, const Gm::Point& v2);
 
 	class Point
 	{
+	public:
 		Point() : x(0), y(0) {};
 		Point(int X, int Y) : x(X * 1.0), y(Y * 1.0) {};
 		Point(double X, double Y) : x(X), y(Y) {};
@@ -23,11 +24,25 @@ namespace Gm
 
 	class Close_Shape
 	{
-		Close_Shape(const std::vector<Point*>& vec): points(vec){}
-		virtual double S();
+	public:
+		Close_Shape(const std::vector<Gm::Point*>& vec): points(vec){}
+		virtual double S() const = 0;
+		virtual double P() const = 0;
+		virtual std::ostream& print() const = 0;
 	protected:
-		std::vector<Point*> points;
+		std::vector<Gm::Point*> points;
 	};
+
+	class Rect : public Close_Shape
+	{
+	public:
+		Rect(const std::vector<Gm::Point*>& vec) :Close_Shape(vec){}
+		virtual std::ostream& print() const override;
+		virtual double S() const override;
+		virtual double P() const override;
+
+	};
+
 
 
 
