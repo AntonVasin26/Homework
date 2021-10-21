@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{bf105124-9de6-4b5a-ace2-7a47740afd39}</ProjectGuid>
-    <RootNamespace>seminar6</RootNamespace>
+    <ProjectGuid>{8d235593-2622-42fd-a39c-62cbef4e9cfe}</ProjectGuid>
+    <RootNamespace>seminar7</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -116,7 +116,6 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -140,13 +139,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="double_in_Fraction.cpp" />
-    <ClCompile Include="ex2.cpp" />
-    <ClCompile Include="my_relize%28unimportant%29.cpp" />
+    <Text Include="Текст.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ex2.hpp" />
-    <ClInclude Include="Header.hpp" />
+    <ClCompile Include="Test.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

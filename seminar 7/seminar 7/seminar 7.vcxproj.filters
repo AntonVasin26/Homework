@@ -15,22 +15,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="double_in_Fraction.cpp">
+    <Text Include="Текст.txt">
       <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="ex2.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="my_relize%28unimportant%29.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
+    </Text>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Header.hpp">
+    <ClCompile Include="Test.cpp">
       <Filter>Исходные файлы</Filter>
-    </ClInclude>
-    <ClInclude Include="ex2.hpp">
-      <Filter>Исходные файлы</Filter>
-    </ClInclude>
+    </ClCompile>
   </ItemGroup>
 </Project>
