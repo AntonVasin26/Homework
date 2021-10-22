@@ -231,26 +231,3 @@ namespace Gm
 		return 2 * Pi * r;
 	}
 }
-
-int main()
-{
-	Gm::Point p1(0, 0), p2(1, 0), p3(1, 1), p4(0, 2), p5(0, -1), p6(3, 4), p7(-1, 0), p8(0,-2);
-	std::vector <Gm::Point*> v1 ({ &p1, &p2, &p3 ,&p4});
-
-	Gm::Close_Shape* Pol = new Gm::SPoligon(v1);
-	Gm::Close_Shape* Cy = new Gm::Ñircle({ &p1,&p6 });
-	Gm::Close_Shape* Tr = new Gm::Triangle({ &p1, &p2, &p3 });
-	Gm::Close_Shape* Ell = new Gm::Ellipse({ &p2, &p4, &p7, &p8 });
-
-	Gm::Point p9(2, 4), p10(7, 4), p11(5, 0), p12(0, 0);
-	Gm::Close_Shape* Rb = new Gm::Rhomb({ &p2, &p4, &p7, &p8 });
-	Gm::Close_Shape* pl = new Gm::Parallelogram({ &p9, &p10, &p11, &p12 });
-	std::vector<Gm::Close_Shape*> figures = { Pol, Cy, Tr, Ell, Rb, pl };
-	for (auto i : figures)
-		std::cout << *i;
-
-	figures.clear();
-	delete Pol, Cy, Tr, Ell;
-}
-
-
