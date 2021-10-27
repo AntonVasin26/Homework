@@ -5,11 +5,10 @@
 
 namespace Gm
 {
-	class Vector
+	struct Vector
 	{
 	public:
 		Vector() : x(0), y(0) {};
-		Vector(int X, int Y) : x(X * 1.0), y(Y * 1.0) {};
 		Vector(double X, double Y) : x(X), y(Y) {};
 		Vector& operator += (const Vector& other);
 		Vector& operator -= (const Vector& other);
