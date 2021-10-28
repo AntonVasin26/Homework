@@ -1,8 +1,4 @@
-#include <iostream>
-#include <random>
-#include <variant>
-#include <cassert>
-
+#include "Header.hpp"
 
 using namespace std;
 
@@ -59,7 +55,7 @@ int f2(int a, int b, int c)
 
 
 
-int main()
+void ex1()
 {
 	std::random_device rd;
 	std::mt19937 gen(rd());
