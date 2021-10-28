@@ -51,13 +51,14 @@ double f7(double x, double y)
 
 void ex2()
 {
+	std::cout << "\nex2 start\n";
 	try
 	{
 		f3(10, 4, 4);
 	}
 	catch (const std::range_error& e)
 	{
-		std::cout << "\nf3 success\n";
+		std::cout << "\nf3 found error\n";
 	}
 	try
 	{
@@ -66,7 +67,7 @@ void ex2()
 	}
 	catch (const std::length_error& e)
 	{
-		std::cout << "\nf4 success\n";
+		std::cout << "\nf4 found error\n";
 	}
 	try
 	{
@@ -74,7 +75,7 @@ void ex2()
 	}
 	catch (const std::overflow_error& e)
 	{
-		std::cout << "\nf5 success\n";
+		std::cout << "\nf5 found error\n";
 	}
 	try
 	{
@@ -82,7 +83,7 @@ void ex2()
 	}
 	catch (const std::domain_error& e)
 	{
-		std::cout << "\nf6 success\n";
+		std::cout << "\nf6 found error\n";
 	}
 	try
 	{
@@ -90,6 +91,6 @@ void ex2()
 	}
 	catch (const std::logic_error& e)
 	{
-		std::cout << "\nf7 success\n";
+		std::cout << "\nf7 found error\n";
 	}
 }

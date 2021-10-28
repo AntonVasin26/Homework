@@ -57,6 +57,7 @@ int f2(int a, int b, int c)
 
 void ex1()
 {
+	std::cout << "\nex1 start\n";
 	std::random_device rd;
 	std::mt19937 gen(rd());
 	

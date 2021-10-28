@@ -1,5 +1,5 @@
 #include "Header.hpp"
-#include "ex2.hpp"
+#include "ex3.hpp"
 
 namespace My_space
 {
@@ -27,6 +27,10 @@ namespace My_space
 
 	Fraction pow(const Fraction &f , double n)
 	{
+		if (abs(n - static_cast<int>(n)) < std::numeric_limits<double>::epsilon())
+			return pow(f, static_cast<int>(n));
+		if (f.numerator < 0 && abs(n - static_cast<int>(n)) > std::numeric_limits<double>::epsilon())
+			throw My_space::Fractional_power_of_a_negative_number();
 		double A = static_cast<double>(f.numerator) / static_cast<double>(f.denominator);
 		A = std::pow(A, n);
 		Fraction f1(A);
@@ -93,6 +97,8 @@ namespace My_space
 
 	Fraction& Fraction::operator /= (const Fraction& other)
 	{
+		if (other.numerator == 0)
+			throw Division_by_zero();
 		numerator *= other.denominator;
 		denominator *= other.numerator;
 		return *this;
@@ -131,45 +137,34 @@ namespace My_space
 	}
 
 }
-
-
-int main()
+void ex3()
 {
-	My_space::Fraction f1(1, 4);
-	My_space::Fraction f2(2, 8);
-	std::cout << f1 << '\n';
-	std::cout << f2 << '\n';
-	std::cout << (f1 == f2) << '\n';
-	f2 = pow(f1, 1.5);
-	std::cout << f2 << '\n';
-
-	My_space::Fraction f3(1.5);
-	std::cout << f3 << '\n';
-	double f4 = 2.75;
-	std::cout << f4 << '\n';
-	My_space::Fraction f5(4.8);
-	f5 += f4;
-	f5 -= f4;
-	f5 *= f4;
-	f5 /= f4;
-	f5 = f3 + f4;
-	f5 = f3 - f4;
-	f5 = f3 * f4;
-	f5 = f3 / f4;
-	f5 = f4 + f3;
-	f5 = f4;
-
-	My_space::Fraction f6(1, 2);
-	My_space::Fraction f7(2, 3);
-	My_space::Fraction f8(2, 4);
-	f6 > f7;
-	f6 < f7;
-	f6 >= f8;
-	f6 <= f8;
-	++f6;
-	--f7;
-	f6.num_plus(1);
-	f6.num_minus(1);
-
-	std::cin >> f6;
+	My_space::Fraction a(-1, 3);
+	My_space::Fraction b(0, 1);
+	My_space::Fraction c;
+	try
+	{
+		c = a / b;
+	}
+	catch (My_space::Division_by_zero e)
+	{
+		std::cout << "\n\n\n" << __FILE__ << ";\n line: " << __LINE__ << "Division_by_zero find";
+	}
+	try
+	{
+		a /= b;
+	}
+	catch (My_space::Division_by_zero e)
+	{
+		std::cout << "\n\n\n" << __FILE__ << ";\n line: " << __LINE__ << "Division_by_zero find";
+	}
+	try
+	{
+		c = pow(a, 0.5);
+	}
+	catch (My_space::Fractional_power_of_a_negative_number e)
+	{
+		std::cout << "\n\n\n" << __FILE__ << ";\n line: " << __LINE__ << "; Fractional_power_of_a_negative_number find";
+	}
 }
+

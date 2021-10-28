@@ -145,11 +145,14 @@
     <Text Include="Текст.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="double_in_Fraction.cpp" />
     <ClCompile Include="ex1.cpp" />
+    <ClCompile Include="ex3.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ex2.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ex3.hpp" />
     <ClInclude Include="Header.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

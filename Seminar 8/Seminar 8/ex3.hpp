@@ -3,6 +3,8 @@
 
 namespace My_space
 {
+	class Division_by_zero : public std::exception {};
+	class Fractional_power_of_a_negative_number : public std::exception {};
 	class Fraction
 	{
 	private:
@@ -11,11 +13,22 @@ namespace My_space
 	public:
 		Fraction() : numerator(0), denominator(1) {}
 
-		Fraction(int n) : numerator(n), denominator(1U) {}
+		Fraction(int n) : numerator(n), denominator(1U) { simplify(); }
 
 		Fraction(double x) { as_fraction(x, numerator, denominator, std::pow(10, 6)); simplify(); }
 
-		Fraction(int n, unsigned int m = 1) : numerator(n), denominator(m) { simplify(); }
+		Fraction(int n, int m) : numerator(n)
+		{ 
+			if (m <= 0)
+			{
+				throw std::invalid_argument("denominator = m <= 0");
+			}
+			else
+			{
+				denominator = m;
+				simplify();
+			}
+		}
 
 		Fraction(const Fraction& f) = default;
 
