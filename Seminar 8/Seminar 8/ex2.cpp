@@ -28,7 +28,8 @@ void f4(int a[] , std::size_t l, int b)
 
 int f5(int x, int y)
 {
-	if (std::numeric_limits<int>::max() / x < y)
+	int m = std::numeric_limits<int>::max();
+	if (m / x < y)
 		throw std::overflow_error("|x*y| > max(int)");
 	return x * y;
 }
