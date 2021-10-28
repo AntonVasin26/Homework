@@ -10,13 +10,6 @@ enum class MyError
 };
 
 
-MyError get_random_error()
-{
-	std::random_device rd;
-	std::mt19937 gen(rd());
-	return MyError(gen()%5);
-}
-
 std::variant <MyError, int> f1(int a, int b, int c)
 {
 	if (a > b + c)

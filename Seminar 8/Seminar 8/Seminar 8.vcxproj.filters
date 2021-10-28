@@ -18,6 +18,9 @@
     <Text Include="Текст.txt">
       <Filter>Исходные файлы</Filter>
     </Text>
+    <Text Include="ex4.txt">
+      <Filter>Исходные файлы</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

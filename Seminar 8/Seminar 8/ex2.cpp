@@ -44,7 +44,7 @@ int f6(double x)
 
 double f7(double x, double y)
 {
-	if (x * y < 0)
+	if (x * y < 0.0)
 		throw std::logic_error("the root of negative numbers");
 	return pow(x * y, 0.5);
 }
