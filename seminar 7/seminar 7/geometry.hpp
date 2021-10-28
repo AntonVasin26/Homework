@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <numbers>
 
 namespace Gm
 {
@@ -38,7 +39,6 @@ namespace Gm
 
 	protected:
 		std::vector<Vector> Vectors;
-		static inline const double Pi = 3.14159265358979323846;
 	};
 
 	class SPoligon : public Close_Shape

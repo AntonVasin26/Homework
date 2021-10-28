@@ -192,12 +192,12 @@ namespace Gm
 	}
 	double Ellipse::S() const
 	{
-		return Pi*a*b;
+		return std::numbers::pi*a*b;
 	}
 
 	double Ellipse::P() const
 	{
-		return 4 * Pi*(a * b + a - b) / (a + b);
+		return 4 * std::numbers::pi*(a * b + a - b) / (a + b);
 	}
 //Circle
 	std::ostream& Ñircle::print(std::ostream& stream) const
@@ -208,11 +208,11 @@ namespace Gm
 	}
 	double Ñircle::S() const
 	{
-		return Pi * r * r;
+		return std::numbers::pi * r * r;
 	}
 
 	double Ñircle::P() const
 	{
-		return 2 * Pi * r;
+		return 2 * std::numbers::pi * r;
 	}
 }
