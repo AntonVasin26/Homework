@@ -3,20 +3,20 @@
 
 namespace My_space
 {
-	void Fraction::simplify()
+	void Fraction::simplify() noexcept
 	{
 		auto d = std::gcd(numerator, denominator);
 		numerator /= d;
 		denominator /= d;
 	}
 
-	Fraction const Fraction::get_fractional_part()
+	Fraction const Fraction::get_fractional_part() noexcept
 	{
 		My_space::Fraction A(numerator - denominator * get_whole_part(), denominator);
 		return A;
 	}
 
-	Fraction pow(const Fraction &f, int n)
+	Fraction pow(const Fraction &f, int n) noexcept
 	{
 		Fraction f1;
 		f1.numerator = std::pow(f.numerator, n);
@@ -37,27 +37,7 @@ namespace My_space
 		return f1;
 	}
 
-	Fraction& Fraction::denom_plus(int n)
-	{
-		if (denominator > -n)
-			denominator += n;
-		else
-			std::cout << "\nthe denominator is less than zero\n";
-		simplify();
-		return *this;
-	}
-
-	Fraction& Fraction::denom_minus(int n)
-	{
-		if (denominator > n)
-			denominator -= n;
-		else
-			std::cout << "\nthe denominator is less than zero\n";
-		simplify();
-		return *this;
-	}
-
-	std::ostream& operator << (std::ostream& os, const Fraction& f)
+	std::ostream& operator << (std::ostream& os, const Fraction& f) noexcept
 	{
 		os << f.numerator << '/' << f.denominator;
 		return os;
@@ -66,29 +46,35 @@ namespace My_space
 	std::istream& operator>>(std::istream& in, Fraction& f1)
 	{
 		char c;
+		int b;
 		in >> f1.numerator;
 		in >> c;
-		in >> f1.denominator;
+		if (c != '/')
+			throw std::invalid_argument("Incorrect fraction input");
+		in >> b;
+		if (b <= 0)
+			throw std::invalid_argument("denominator = m <= 0");
+		f1.denominator = b;
 		f1.simplify();
 		return in;
 
 	}
 
-	Fraction& Fraction::operator += (const Fraction& other)
+	Fraction& Fraction::operator += (const Fraction& other) noexcept
 	{
 		numerator = numerator * other.denominator + denominator * other.numerator;
 		denominator = denominator * other.denominator;
 		return *this;
 	}
 
-	Fraction& Fraction::operator -= (const Fraction& other)
+	Fraction& Fraction::operator -= (const Fraction& other) noexcept
 	{
 		numerator = numerator * other.denominator - denominator * other.numerator;
 		denominator = denominator * other.denominator;
 		return *this;
 	}
 
-	Fraction& Fraction::operator *= (const Fraction& other)
+	Fraction& Fraction::operator *= (const Fraction& other) noexcept
 	{
 		numerator *= other.numerator;
 		denominator *= other.denominator;
@@ -98,13 +84,13 @@ namespace My_space
 	Fraction& Fraction::operator /= (const Fraction& other)
 	{
 		if (other.numerator == 0)
-			throw Division_by_zero();
+			throw Division_by_zero("numerator == 0");
 		numerator *= other.denominator;
 		denominator *= other.numerator;
 		return *this;
 	}
 
-	Fraction operator + (const Fraction& a, const Fraction& b)
+	Fraction operator + (const Fraction& a, const Fraction& b) noexcept
 	{
 		Fraction ans = a;
 		ans += b;
@@ -112,7 +98,7 @@ namespace My_space
 		return ans;
 	}
 
-	Fraction operator - (const Fraction& a, const Fraction& b)
+	Fraction operator - (const Fraction& a, const Fraction& b) noexcept
 	{
 		Fraction ans = a;
 		ans -= b;
@@ -120,7 +106,7 @@ namespace My_space
 		return ans;
 	}
 
-	Fraction operator * (const Fraction& a, const Fraction& b)
+	Fraction operator * (const Fraction& a, const Fraction& b) noexcept
 	{
 		Fraction ans = a;
 		ans *= b;
@@ -144,27 +130,79 @@ void ex3()
 	My_space::Fraction c;
 	try
 	{
+		c = 15 / -7;
+	}
+	catch (std::invalid_argument const &e)
+	{
+		std::cout << "\n\n\n" << __FILE__ << ";\n line: " << __LINE__;
+	}
+	catch (std::exception const &e)
+	{
+		std::cout << "\n\n\n" << __FILE__ << ";\n line: " << __LINE__;
+	}
+	catch (...)
+	{
+		std::cout << "\n\n\n" << __FILE__ << ";\n line: " << __LINE__;
+	}
+	c = 0 / 1;
+	try
+	{
 		c = a / b;
 	}
-	catch (My_space::Division_by_zero e)
+	catch (My_space::Division_by_zero const &e)
 	{
-		std::cout << "\n\n\n" << __FILE__ << ";\n line: " << __LINE__ << "Division_by_zero find";
+		std::cout << "\n\n\n" << __FILE__ << ";\n line: " << __LINE__ << "; Division_by_zero find";
 	}
+
+	catch (std::exception const &e)
+	{
+		std::cout << "\n\n\n" << __FILE__ << ";\n line: " << __LINE__;
+	}
+	catch(...)
+	{
+		std::cout << "\n\n\n" << __FILE__ << ";\n line: " << __LINE__;
+	}
+
 	try
 	{
 		a /= b;
 	}
-	catch (My_space::Division_by_zero e)
+	catch (My_space::Division_by_zero const &e)
 	{
-		std::cout << "\n\n\n" << __FILE__ << ";\n line: " << __LINE__ << "Division_by_zero find";
+		std::cout << "\n\n\n" << __FILE__ << ";\n line: " << __LINE__ << "; Division_by_zero find";
 	}
+	catch (std::invalid_argument const &e)
+	{
+		std::cout << "\n\n\n" << __FILE__ << ";\n line: " << __LINE__;
+	}
+	catch (std::exception const &e)
+	{
+		std::cout << "\n\n\n" << __FILE__ << ";\n line: " << __LINE__;
+	}
+	catch (...)
+	{
+		std::cout << "\n\n\n" << __FILE__ << ";\n line: " << __LINE__;
+	}
+
 	try
 	{
 		c = pow(a, 0.5);
 	}
-	catch (My_space::Fractional_power_of_a_negative_number e)
+	catch (My_space::Fractional_power_of_a_negative_number const &e1)
 	{
 		std::cout << "\n\n\n" << __FILE__ << ";\n line: " << __LINE__ << "; Fractional_power_of_a_negative_number find";
+	}
+	catch (std::logic_error const &e)
+	{
+		std::cout << "\n\n\n" << __FILE__ << ";\n line: " << __LINE__;
+	}
+	catch (std::exception const &e)
+	{
+		std::cout << "\n\n\n" << __FILE__ << ";\n line: " << __LINE__;
+	}
+	catch (...)
+	{
+		std::cout << "\n\n\n" << __FILE__ << ";\n line: " << __LINE__;
 	}
 }
 
