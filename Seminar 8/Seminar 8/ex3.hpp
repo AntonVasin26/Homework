@@ -3,11 +3,11 @@
 
 namespace My_space
 {
-	class Division_by_zero : public std::invalid_argument
+	class Division_by_zero : public std::logic_error
 	{
 	public:
-		explicit Division_by_zero() : invalid_argument("Division_by_zero: " + '\n') {}
-		explicit Division_by_zero(const std::string& _Message) : invalid_argument( ("Division_by_zero: " + _Message + '\n').c_str()) {}
+		explicit Division_by_zero() : logic_error("Division_by_zero: " + '\n') {}
+		explicit Division_by_zero(const std::string& _Message) : logic_error( ("Division_by_zero: " + _Message + '\n').c_str()) {}
 		~Division_by_zero() noexcept = default;
 
 	};

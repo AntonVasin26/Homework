@@ -131,72 +131,27 @@ void ex3()
 	try
 	{
 		c = 15 / -7;
-	}
-	catch (std::invalid_argument const &e)
-	{
-		std::cout << "\n\n\n" << __FILE__ << ";\n line: " << __LINE__;
-	}
-	catch (std::exception const &e)
-	{
-		std::cout << "\n\n\n" << __FILE__ << ";\n line: " << __LINE__;
-	}
-	catch (...)
-	{
-		std::cout << "\n\n\n" << __FILE__ << ";\n line: " << __LINE__;
-	}
-	c = 0 / 1;
-	try
-	{
 		c = a / b;
-	}
-	catch (My_space::Division_by_zero const &e)
-	{
-		std::cout << "\n\n\n" << __FILE__ << ";\n line: " << __LINE__ << "; Division_by_zero find";
-	}
-
-	catch (std::exception const &e)
-	{
-		std::cout << "\n\n\n" << __FILE__ << ";\n line: " << __LINE__;
-	}
-	catch(...)
-	{
-		std::cout << "\n\n\n" << __FILE__ << ";\n line: " << __LINE__;
-	}
-
-	try
-	{
-		a /= b;
-	}
-	catch (My_space::Division_by_zero const &e)
-	{
-		std::cout << "\n\n\n" << __FILE__ << ";\n line: " << __LINE__ << "; Division_by_zero find";
-	}
-	catch (std::invalid_argument const &e)
-	{
-		std::cout << "\n\n\n" << __FILE__ << ";\n line: " << __LINE__;
-	}
-	catch (std::exception const &e)
-	{
-		std::cout << "\n\n\n" << __FILE__ << ";\n line: " << __LINE__;
-	}
-	catch (...)
-	{
-		std::cout << "\n\n\n" << __FILE__ << ";\n line: " << __LINE__;
-	}
-
-	try
-	{
+		c /= b;
 		c = pow(a, 0.5);
 	}
-	catch (My_space::Fractional_power_of_a_negative_number const &e1)
-	{
-		std::cout << "\n\n\n" << __FILE__ << ";\n line: " << __LINE__ << "; Fractional_power_of_a_negative_number find";
-	}
-	catch (std::logic_error const &e)
+	catch (My_space::Division_by_zero const& e)
 	{
 		std::cout << "\n\n\n" << __FILE__ << ";\n line: " << __LINE__;
 	}
-	catch (std::exception const &e)
+	catch (My_space::Fractional_power_of_a_negative_number const& e)
+	{
+		std::cout << "\n\n\n" << __FILE__ << ";\n line: " << __LINE__;
+	}
+	catch (std::invalid_argument const& e)
+	{
+		std::cout << "\n\n\n" << __FILE__ << ";\n line: " << __LINE__;
+	}
+	catch (std::logic_error const& e)
+	{
+		std::cout << "\n\n\n" << __FILE__ << ";\n line: " << __LINE__;
+	}
+	catch (std::exception const& e)
 	{
 		std::cout << "\n\n\n" << __FILE__ << ";\n line: " << __LINE__;
 	}
