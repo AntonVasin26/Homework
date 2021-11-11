@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <vector>
 
 template <typename T, typename F>
 void merge(T* array, std::size_t begin, std::size_t end, F comp)
@@ -8,17 +9,20 @@ void merge(T* array, std::size_t begin, std::size_t end, F comp)
     auto mid = (begin + end) / 2;
     auto i = begin;
     auto j = mid + 1;
-    T* merged_array = new T[length];
+    std::vector<T> merged_array;
+    //T* merged_array = new T[length];
     for (auto step = 0; step < length + 1; step++)
     {
         if ((j > end) || ((i <= mid) && comp(array[i], array[j])))
         {
-            merged_array[step] = array[i];
+            merged_array.push_back(array[i]);
+           //merged_array[step] = array[i];
             i++;
         }
         else
         {
-            merged_array[step] = array[j];
+            merged_array.push_back(array[j]);
+            //merged_array[step] = array[j];
             j++;
         }
     }
@@ -26,7 +30,7 @@ void merge(T* array, std::size_t begin, std::size_t end, F comp)
     {
         array[begin + step] = merged_array[step];
     }
-    //delete[] merged_array; - I don't understand why it doesn't work with this line
+    //delete[] merged_array;// - I don't understand why it doesn't work with this line
 }
 
 template < typename T, typename F >
