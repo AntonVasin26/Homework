@@ -129,6 +129,7 @@ namespace My_space
 		{
 			return m_capacity;
 		}
+		void swap(Vector& v2) noexcept;
 		void resize(std::size_t size);
 		void resize(std::size_t size, T&);
 		void push_back(const T& value);
@@ -296,12 +297,13 @@ namespace My_space
 		m_size = new_size;
 	}
 
-	template < typename T>
-	void swap(T& v1, T& v2) noexcept
+	template < typename T >
+	void Vector<T>::swap(Vector& v2) noexcept
 	{
-		T tmp = std::move(v1);
-		v1 = std::move(v2);
-		v2 = std::move(tmp);
-	};
+		std::swap(m_data, v2.m_data);
+		std::swap(m_size, v2.m_size);
+		std::swap(m_capacity, v2.m_capacity);
+
+	}
 
 }
