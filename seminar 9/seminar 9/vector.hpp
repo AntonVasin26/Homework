@@ -59,7 +59,7 @@ namespace My_space
 			return m_data[index];
 		}
 
-		const_reference operator[](size_type index) const noexcept
+		const_reference operator[](size_type index) const
 		{
 			if (index >= m_size)
 			{

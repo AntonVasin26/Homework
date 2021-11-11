@@ -56,3 +56,16 @@ void dyn_and_st_sort(T(&arr)[N], F Comp)
     merge_sort(arr, 0, N - 1, Comp);
 }
 
+template< typename T>
+void dyn_and_st_sort(T* arr, std::size_t N)
+{
+    merge_sort(arr, 0, N - 1, std::less<>{});
+}
+
+template< typename T, std::size_t N>
+void dyn_and_st_sort(T(&arr)[N])
+{
+    merge_sort(arr, 0, N - 1, std::less<>{});
+}
+
+
