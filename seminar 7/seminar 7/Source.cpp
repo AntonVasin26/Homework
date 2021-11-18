@@ -1,9 +1,15 @@
 #include "geometry.hpp"
 
+template <typename T, typename ... Types>
+T* indicator(Types ... args)
+{
+	return new T(args...);
+}
+
 int main()
 {
 	Gm::Vector p1(0, 0), p2(3, 0), p3(5, 4), p4(3, 6), p5(0, 6);
-	Gm::Close_Shape* pol = new Gm::SPoligon({ p1,p2,p3,p4,p5 });
+	Gm::Close_Shape* pol = indicator <Gm::SPoligon>(std::vector{ p1,p2,p3,p4,p5 });
 	Gm::Close_Shape* cy = new Gm::Ñircle({ p1, p2 });
 	Gm::Close_Shape* tr = new Gm::Triangle({ p1, p2, p3 });
 	Gm::Vector p6(2, 0), p7(0, 4), p8(-2, 0), p9(0, -4);
