@@ -2,9 +2,9 @@
 
 
 template <typename T, typename ... Types>
-T* indicator(Types ... args)
+T* indicator(Types && ... args)
 {
-	return new T(args...);
+	return new T(std::forward<Types>(args)...);
 }
 
 void ex2()
