@@ -43,7 +43,7 @@ struct add_const < T&& >
 	using type = const T&&;
 };
 
-template<class T1, class T2>
+template<typename T1, typename T2>
 void print_is_same() {
 	std::cout << std::is_same<T1, T2>() << '\n';
 }
