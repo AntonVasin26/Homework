@@ -15,6 +15,7 @@ struct remove_const < const T >
 	using type = T;
 };
 
+//You musn't to do that
 //template < typename T >
 //struct remove_const < const T& >
 //{
@@ -33,6 +34,7 @@ struct add_const
 	using type = const T;
 };
 
+//You musn't to do that
 //template < typename T >
 //struct add_const < T& >
 //{
