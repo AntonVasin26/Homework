@@ -4,47 +4,89 @@
 namespace My
 {
 	template < typename T >
-	struct remove_const
-	{
-		using type = T;
-	};
-
-	template < typename T >
-	struct remove_const < T const >
-	{
-		using type = T;
-	};
-
-	template <class _Ty>
-	using remove_const_t = typename remove_const<_Ty>::type;
-
-	template < typename T >
-	struct remove_reference
-	{
-		using type = T;
-	};
-
-	template < typename T >
-	struct remove_reference < T& >
-	{
-		using type = T;
-	};
-
-	template < typename T >
-	struct remove_reference < T&& >
-	{
-		using type = T;
-	};
-
-	template <class _Ty>
-	using remove_reference_t = typename remove_reference<_Ty>::type;
-
-	template < typename T >
 	struct decay
 	{
-		using type1 = remove_reference_t<T>;
-		using type = remove_const_t<type1>;
+		using type = T;
 	};
+
+	template < typename T >
+	struct decay < T const >
+	{
+		using type = T;
+	};
+
+	template < typename T >
+	struct decay < T& >
+	{
+		using type = T;
+	};
+
+	template < typename T >
+	struct decay < const T& >
+	{
+		using type = T;
+	};
+
+	template < typename T >
+	struct decay < T&& >
+	{
+		using type = T;
+	};
+
+	template < typename T >
+	struct decay < const T&& >
+	{
+		using type = T;
+	};
+
+	template< typename T, typename ... Args >
+	struct decay< T(Args...)>
+	{
+		using type = T;
+	};
+
+	template< typename T, typename ... Args >
+	struct decay< const T(Args...) >
+	{
+		using type = T;
+	};
+
+	template< typename T, typename ... Args >
+	struct decay< T(Args...)& >
+	{
+		using type = T;
+	};
+
+	template< typename T, typename ... Args >
+	struct decay< const T(Args...)& >
+	{
+		using type = T;
+	};
+
+	template< typename T, typename ... Args >
+	struct decay< T(Args...)&& >
+	{
+		using type = T;
+	};
+
+	template< typename T, typename ... Args >
+	struct decay< const T(Args...)&& >
+	{
+		using type = T;
+	};
+
+	template < typename T, std::size_t N >
+	struct decay < T[N] >
+	{
+		using type = T;
+	};
+
+	template < typename T >
+	struct decay < T[] >
+	{
+		using type = T;
+	};
+
 
 	template<typename T1, typename T2>
 	void print_is_same() {
@@ -56,6 +98,7 @@ namespace My
 
 int main()
 {
+	int const* const A = new int[10];
 	std::cout << std::boolalpha;
 	My::print_is_same<int, My::decay_t<int>>();
 	My::print_is_same<int, My::decay_t<int const>>();
@@ -65,7 +108,10 @@ int main()
 	My::print_is_same<int, My::decay_t<int&&>>();
 	My::print_is_same<int, My::decay_t<int const &>>();
 	My::print_is_same<int, My::decay_t<int const &&>>();
-	My::print_is_same<int*, std::decay_t<int* const &&>>();
+	My::print_is_same<int*, My::decay_t<int* const &&>>();
+	My::print_is_same<int, My::decay_t<int (int a, int b) >>();
+	My::print_is_same<int, My::decay_t<const int[] >>();
+
 }
 
 
