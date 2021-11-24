@@ -81,7 +81,6 @@ int main()
 	My::print_is_same<int, My::decay_t<int const &&>>();
 	My::print_is_same<int*, My::decay_t<int* const &&>>();
 	My::print_is_same<int, My::decay_t<int (int a, int b) >>();
-
 	My::print_is_same<std::decay_t<decltype(A)>, decltype(A)>();
 	My::print_is_same<std::decay_t<decltype(B)>, decltype(B)>();
 
