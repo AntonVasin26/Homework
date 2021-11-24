@@ -8,19 +8,19 @@ template< typename T, typename ... Args >
 struct is_function< T(Args...) > : std::true_type { using type = T; };
 
 template< typename T, typename ... Args >
-struct is_function< T(Args...)&> : std::true_type { using type = T&; };
+struct is_function< T(Args...)&> : std::true_type { using type = T; };
 
 template< typename T, typename ... Args >
-struct is_function< T(Args...)&& > : std::true_type { using type = T&&; };
+struct is_function< T(Args...)&& > : std::true_type { using type = T; };
 
 template< typename T, typename ... Args >
 struct is_function< const T(Args...) > : std::true_type { using type = const T; };
 
 template< typename T, typename ... Args >
-struct is_function< const T(Args...)& > : std::true_type { using type = const T&; };
+struct is_function< const T(Args...)& > : std::true_type { using type = const T; };
 
 template< typename T, typename ... Args >
-struct is_function< const T(Args...)&& > : std::true_type {using type = const T&&;};
+struct is_function< const T(Args...)&& > : std::true_type {using type = const T;};
 
 template <typename T>
 inline constexpr bool is_function_v = is_function< T >::value;
@@ -47,7 +47,7 @@ int main()
 	std::cout << is_function_v< decltype(f) > << '\n';
 	std::cout << "-------------------------------------------\n";
 	print_is_same<is_function< decltype(f) > ::type, int>() ;
-	print_is_same<is_function< double& > ::type, double&>();
+	print_is_same<is_function< double& () > ::type, double&>();
 	print_is_same<is_function< double > ::type, int>();
 	print_is_same<is_function< double* > ::type, int>();
 	//print_is_function_v < [](int i){return ((i % 2) == 0);}> ();
